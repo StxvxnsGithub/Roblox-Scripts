@@ -5,7 +5,7 @@ local connections = {}
 
 ----------------------------------------------
 
-local function newTeleport(teleportPart)
+local function teleport(teleportPart)
 	local destination = teleportPart.Destination.Value
 	local customText = teleportPart.CustomText
 	local prompt = teleportPart.PromptAttachment.ProximityPrompt
@@ -41,7 +41,7 @@ local function removeTeleport(teleportPart)
 end
 
 CollectionService:GetInstanceAddedSignal("FedsTeleport"):Connect(function(instance) 
-	newTeleport(instance) 
+	teleport(instance) 
 end)
 CollectionService:GetInstanceRemovedSignal("FedsTeleport"):Connect(function(instance) 
 	removeTeleport(instance) 
